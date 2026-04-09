@@ -17,6 +17,7 @@ class OrderService {
 
     const total = this.pricing.calculateFinalPrice(price, quantity);
 
+    // Error 4 corregido: reducia el stock antes de procesar el pago, ahora ya tiene el flujo correcto
     const payment = await this.payment.processPayment(total);
     
     this.inventory.reduceStock(productId, quantity);
@@ -28,7 +29,7 @@ class OrderService {
     await this.notification.sendNotification(userId, 'Order created');
 
     return {
-      orderId: Date.now(),
+      orderId: Date.now(), // Error 5 corregido: Math.random regresaba valores incorrectos para id, ahora Date.now() regresa valores validos
       total,
       transactionId: payment.transactionId
     };

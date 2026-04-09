@@ -14,7 +14,7 @@ class OrderController {
 
       return {
         status: 'success',
-        data: order
+        data: order // Error 1 corregido: regresaba order.data y ahora regresa el objeto directamente
       };
 
     } catch (error) {

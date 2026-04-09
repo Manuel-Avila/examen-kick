@@ -7,6 +7,7 @@ class PricingService {
     return amount * 0.1;
   }
 
+  // Error 2 corregido: Antes solo calculaba el descuento y ahora si lo aplica correctamente
   applyDiscount(amount) {
     if (amount > 200) return amount - (amount * 0.15);
     if (amount > 100) return amount - (amount * 0.1);

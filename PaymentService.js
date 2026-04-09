@@ -1,5 +1,6 @@
 class PaymentService {
   async processPayment(amount) {
+    // Error 3 corregido: No tiraba un errror y ahora si lo hace
     if (amount <= 0) {
       throw new Error('Invalid payment amount');
     }
